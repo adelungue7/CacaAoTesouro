@@ -95,6 +95,22 @@ public class Main {
     
         return new int[]{posicaoJogadorX, posicaoJogadorY, tesourosEncontrados};
     }
+
+     public static void dicaAlgoPerto(int[][] tabuleiro, int x, int y) {
+    if ((x > 0 && tabuleiro[x - 1][y] != 0) || (x < 9 && tabuleiro[x + 1][y] != 0) || (y > 0 && tabuleiro[x][y - 1] != 0) || (y < 9 && tabuleiro[x][y + 1] != 0)) {
+        // x > 0 ou y > 0 verifica se nã irá sair do tabuleiro
+        // x < 9 ou y > 9 verifica se nã irá sair do tabuleiro
+
+        // [x - 1][y]!=0 verifica a posição acima
+        // [x + 1][y]!=0 verifica a posição abaixo
+
+        // [x][y - 1]!=0 verifica a posição à esquerda
+        // [x][y + 1]!=0 verifica a posição à direita
+
+        System.out.println();
+        System.out.println("Tem algo por perto.");
+    }
+}
     public static void main(String[] args) {
         int[][] tabuleiro = new int[10][10];
         boolean[][] posicoesVisitadas = new boolean[10][10];
@@ -110,6 +126,11 @@ public class Main {
             posicaoJogadorX = resultado[0];
             posicaoJogadorY = resultado[1];
             tesourosEncontrados = resultado[2];
+
+            if (tesourosEncontrados < 3) {
+                dicaAlgoPerto(tabuleiro, posicaoJogadorX, posicaoJogadorY);
+            }
+
             System.out.println();
             System.out.println("Você está com: " + tesourosEncontrados + " TESOUROS!");
         }
