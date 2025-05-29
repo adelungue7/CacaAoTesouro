@@ -139,7 +139,7 @@ System.out.println("Parabéns! Você encontrou todos os tesouros!");
 ---
 
 ### `Saída`
-
+```
 Bem-vindo ao Caça ao Tesouro!
 
 Você deve encontrar 3 tesouros e evitar as armadilhas. Boa sorte!
@@ -157,13 +157,24 @@ P - - - - - - - - -
 - - - - - - - - - -
 - - - - - - - - - -
 Digite o movimento (w = cima, s = baixo, a = esquerda, d = direita):
-
+```
 ---
 
 ### `Autores`
 
-Desenvolvedores:
-**Gustavo Gonçalves Viana** **GitHub: gustavo578**
-**João Paulo Figueiredo Serafim** **GitHub: joaopaulofserafim**
-**João Vitor Reis Alves** **GitHub: johnz07**
-**Rafael Adelungue Da Silva** **GitHub: adelungue07**
+Desenvolvedores:  
+**Gustavo Gonçalves Viana** - [GitHub: gustavo578](https://github.com/gustavo578)  
+
+---
+
+**João Paulo Figueiredo Serafim** - [GitHub: joaopaulofserafim](https://github.com/joaopaulofserafim)  
+
+---
+
+**João Vitor Reis Alves** - [GitHub: johnz07](https://github.com/johnz07)  
+
+---
+
+**Rafael Adelungue Da Silva** - [GitHub: adelungue07](https://github.com/adelungue07)
+
+---
