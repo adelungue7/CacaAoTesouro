@@ -37,15 +37,21 @@ public class Main {
     }
 
     public static void imprimirTabuleiro(int[][] tabuleiro, boolean[][] posicoesVisitadas, int posicaoJogadorX, int posicaoJogadorY) {
+        final String ANSI_YELLOW = "\u001B[33m";
+        final String ANSI_RESET = "\u001B[0m";
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro[i].length; j++) {
                 if (i == posicaoJogadorX && j == posicaoJogadorY) {
                     System.out.print("P "); // Jogador
                 } 
-                else if (posicoesVisitadas[i][j] == true) {
-                    System.out.print("X "); // Posição já visitada
+                else if (posicoesVisitadas[i][j]) {
+                    if (tabuleiro[i][j] == 1) {
+                        System.out.print("T "); // Tesouro já visitado
+                    } else {
+                        System.out.print("X "); // Posição já visitada
+                    }
                 } else {
-                    System.out.print("- "); // Posição não visitada
+                    System.out.print(ANSI_YELLOW + "- " + ANSI_RESET); // Posição não visitada em amarelo
                 }
             }
             System.out.println();
@@ -57,7 +63,7 @@ public class Main {
         System.out.println("Digite o movimento (w = cima, s = baixo, a = esquerda, d = direita): ");
         char movimento = input.next().charAt(0);
         int novaPosicaoX = posicaoJogadorX, novaPosicaoY = posicaoJogadorY;
-    
+
         switch (movimento) {
             case 'w': novaPosicaoX--; break;
             case 's': novaPosicaoX++; break;
@@ -67,21 +73,20 @@ public class Main {
                 System.out.println("Movimento inválido!");
                 break;
         }
-    
+
         // Verificar limites do tabuleiro
         if (novaPosicaoX >= 0 && novaPosicaoX < 10 && novaPosicaoY >= 0 && novaPosicaoY < 10) {
             posicaoJogadorX = novaPosicaoX;
             posicaoJogadorY = novaPosicaoY;
-    
+
             // Marcar como visitado
             if (!posicoesVisitadas[posicaoJogadorX][posicaoJogadorY]) {
                 posicoesVisitadas[posicaoJogadorX][posicaoJogadorY] = true;
-    
+
                 // Verificar o que há na posição
                 if (tabuleiro[posicaoJogadorX][posicaoJogadorY] == 1) {
                     System.out.println("Você encontrou um tesouro!");
                     tesourosEncontrados++;
-                    
                 } else if (tabuleiro[posicaoJogadorX][posicaoJogadorY] == -1) {
                     System.out.println("Você caiu em uma armadilha! Fim de jogo.");
                     System.exit(0);
@@ -92,7 +97,14 @@ public class Main {
         } else {
             System.out.println("Movimento fora do tabuleiro!");
         }
-    
+
+        // Adiciona delay de 1 segundo após o movimento
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         return new int[]{posicaoJogadorX, posicaoJogadorY, tesourosEncontrados};
     }
 
@@ -119,6 +131,9 @@ public class Main {
 
         inicializarTabuleiro(tabuleiro);
         exibirMensagemInicial();
+
+        // Marca a posição inicial como visitada
+        posicoesVisitadas[posicaoJogadorX][posicaoJogadorY] = true;
 
         while (tesourosEncontrados < 3) {
             imprimirTabuleiro(tabuleiro, posicoesVisitadas, posicaoJogadorX, posicaoJogadorY);
