@@ -225,10 +225,11 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 if (tabuleiro[i][j] == 1 && !posicoesVisitadas[i][j]) {
-                    posicoesVisitadas[i][j] = true;
                     System.out.println("BÔNUS: TESOURO REVELADO");
+                    System.out.println("Tesouro revelado na posição (" + i + ", " + j + ")!");
                     return;
                 }
+                
             }
         }
     }
