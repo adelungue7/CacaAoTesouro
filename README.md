@@ -43,3 +43,6 @@ Este projeto foi desenvolvido com dedicação por:
 * **João Vitor Reis Alves** (@johnz07)
 * **João Paulo Figueiredo** (@joaopaulofserafim)
 * **Rafael Adelungue da Silva** (@adelungue7)
+
+
+canva: https://www.canva.com/design/DAGpKKH_kfQ/f3inKYDPt89HTWooaUzLWw/edit?utm_content=DAGpKKH_kfQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
